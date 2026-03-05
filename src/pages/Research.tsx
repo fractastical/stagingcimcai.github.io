@@ -94,6 +94,29 @@ const CallForSubtitle = styled.div`
   `}
 `
 
+const ResearchVizContainer = styled.div`
+  ${tw`
+    w-full
+    border
+    border-cimc_dark/10
+    rounded-md
+    overflow-hidden
+    bg-white
+  `}
+`
+
+const ResearchVizIframe = styled.iframe`
+  ${tw`
+    w-full
+    border-0
+  `}
+  height: clamp(360px, 62vh, 760px);
+
+  @media (min-width: 768px) {
+    height: clamp(480px, 70vh, 900px);
+  }
+`
+
 function Research() {
   const [selectedProjectId, setSelectedProjectId] = useState<string>("")
   const [searchParams] = useSearchParams()
@@ -113,6 +136,13 @@ function Research() {
           <>
             <div className="flex flex-col gap-14 justify-start">
               <OngoingResearchHeader />
+              <ResearchVizContainer>
+                <ResearchVizIframe
+                  src="https://cimcops.org/viz/research?theme=crimson&embed=true"
+                  title="Research operations visual"
+                  loading="lazy"
+                />
+              </ResearchVizContainer>
               <ProjectsAccordion isFullListMode />
             </div>
           </>
