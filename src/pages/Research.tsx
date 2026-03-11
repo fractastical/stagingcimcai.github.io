@@ -130,19 +130,19 @@ function Research() {
     <ResearchContainer>
       <PageHeroGraphic />
       <ResearchLayout>
+        <ResearchVizContainer>
+          <ResearchVizIframe
+            src="https://cimcops.org/viz/research?theme=crimson&embed=true"
+            title="Research operations visual"
+            loading="lazy"
+          />
+        </ResearchVizContainer>
         {selectedProjectId ? (
           <ProjectDetails projectId={selectedProjectId} />
         ) : (
           <>
             <div className="flex flex-col gap-14 justify-start">
               <OngoingResearchHeader />
-              <ResearchVizContainer>
-                <ResearchVizIframe
-                  src="https://cimcops.org/viz/research?theme=crimson&embed=true"
-                  title="Research operations visual"
-                  loading="lazy"
-                />
-              </ResearchVizContainer>
               <ProjectsAccordion isFullListMode />
             </div>
           </>
