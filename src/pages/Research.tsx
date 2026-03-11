@@ -111,12 +111,12 @@ const ResearchVizIframe = styled.iframe`
     border-0
   `}
   /* Slight visual zoom-in for embed readability */
-  transform: scale(1.08);
+  transform: scale(1.18);
   transform-origin: top center;
-  height: calc(clamp(360px, 62vh, 760px) / 1.08);
+  height: calc(clamp(360px, 62vh, 760px) / 1.18);
 
   @media (min-width: 768px) {
-    height: calc(clamp(480px, 70vh, 900px) / 1.08);
+    height: calc(clamp(480px, 70vh, 900px) / 1.18);
   }
 `
 
