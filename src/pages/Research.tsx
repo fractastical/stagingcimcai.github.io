@@ -110,10 +110,13 @@ const ResearchVizIframe = styled.iframe`
     w-full
     border-0
   `}
-  height: clamp(360px, 62vh, 760px);
+  /* Slight visual zoom-in for embed readability */
+  transform: scale(1.08);
+  transform-origin: top center;
+  height: calc(clamp(360px, 62vh, 760px) / 1.08);
 
   @media (min-width: 768px) {
-    height: clamp(480px, 70vh, 900px);
+    height: calc(clamp(480px, 70vh, 900px) / 1.08);
   }
 `
 
@@ -130,19 +133,19 @@ function Research() {
     <ResearchContainer>
       <PageHeroGraphic />
       <ResearchLayout>
-        <ResearchVizContainer>
-          <ResearchVizIframe
-            src="https://cimcops.org/viz/research?theme=crimson&embed=true"
-            title="Research operations visual"
-            loading="lazy"
-          />
-        </ResearchVizContainer>
         {selectedProjectId ? (
           <ProjectDetails projectId={selectedProjectId} />
         ) : (
           <>
             <div className="flex flex-col gap-14 justify-start">
               <OngoingResearchHeader />
+              <ResearchVizContainer>
+                <ResearchVizIframe
+                  src="https://cimcops.org/viz/research?theme=crimson&embed=true"
+                  title="Research operations visual"
+                  loading="lazy"
+                />
+              </ResearchVizContainer>
               <ProjectsAccordion isFullListMode />
             </div>
           </>
